@@ -13,6 +13,9 @@ entryPoints:
 log:
  level: INFO
 
+api:
+  insecure: true
+
 providers:
   docker:
     exposedByDefault: false
@@ -25,5 +28,7 @@ certificatesResolvers:
       dnsChallenge:
         provider: cloudflare
         delayBeforeCheck: "10"
+        resolvers:
+          - "1.1.1.1:53"
       email: email@example.com
       storage: /letsencrypt/acme.json

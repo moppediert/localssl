@@ -22,5 +22,5 @@ The second one is optional but practical when you have multiple services running
 3. In `docker-compose.yml`, replace all instances of `your-domain.com` with the one that you set the DNS records for, e.g. `local.example.com`. Also replace `CF_API_KEY` and `CF_API_EMAIL` value with your credentials for Cloudflare. If you have another provider, follow this [instruction](https://doc.traefik.io/traefik/https/acme/#providers).
 
 4. Go to `traefik.yml`, update `certificatesResolvers.myresolver.acme.dnsChallenge.provider` if needed
-5. Go to `traefik-dynamic.yml`, update the host at `http.routers.to-dev-server.rule` if wanted and update the port at `services.dev-server.loadBalancer.servers[0].url` to the port of your local server
+5. Go to `traefik-dynamic.yml`, update the host at `http.routers.to-dev-server.rule` and update the port at `services.dev-server.loadBalancer.servers[0].url` to the port of your local server
 6. Run `docker compose up`. It takes a bit to request a SSL certificate and then your local server should be reachable at the desired host.
