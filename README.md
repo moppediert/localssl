@@ -16,11 +16,11 @@ This is inherently just how traefik (or any other reverse proxy) works. The spec
 0. Get a domain name
 1. Get the local IP address of the machine where the HTTP server will run. On macOS, this is in Settings -> Networks -> Details of the active network -> IP address.
 2. Set an `A` record at the desired host on this IP address in your DNS provider's settings. For instance, if you own the domain `example.com` and want your local server running on machine `192.168.0.213` to be reachable at `local.example.com`, set these two records:
-```
-A local 192.168.0.213
-A *.local 192.168.0.213
-```
-The second one is optional but practical when you have multiple services running and don't want to set a record for each of them.
+    ```
+    A local 192.168.0.213
+    A *.local 192.168.0.213
+    ```
+    The second one is optional but practical when you have multiple services running and don't want to set a record for each of them.
 
 3. In `docker-compose.yml`, replace all instances of `your-domain.com` with the one that you set the DNS records for, e.g. `local.example.com`. Also replace `CF_API_KEY` and `CF_API_EMAIL` value with your credentials for Cloudflare. If you have another provider, follow this [instruction](https://doc.traefik.io/traefik/https/acme/#providers).
 
