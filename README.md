@@ -5,7 +5,7 @@ Equip local dev server with a CA-signed SSL certificate.
 
 This will enable your local HTTP server to be reachable at a global domain name instead of localhost, e.g. local.example.com, with a valid CA-signed SSL certificate. This is helpful when you need to reach your local server from another device in the same local network _and_ SSL is enabled. A self-signed SSL certificate is not helpful because the cert is only valid on the machine where the server runs.
 
-The idea is mainly taken from this [blogpost](https://www.codinginfinity.me/posts/reverse-proxy-yourself-to-localhost-with-ssltls/), but traefik is used as reverse proxy instead of nginx-proxy because traefik handles SSL request and renewal automatically.
+The idea is borrowed from this [blogpost](https://www.codinginfinity.me/posts/reverse-proxy-yourself-to-localhost-with-ssltls/), but traefik is used as reverse proxy instead of nginx-proxy because traefik handles SSL request and renewal automatically.
 
 ## How does it work?
 This is inherently just how traefik (or any other reverse proxy) works. The special bit is that instead of your domain pointing to a public IP, it points to a local IP.
