@@ -15,7 +15,7 @@ This is inherently just how traefik (or any other reverse proxy) works. The spec
 
 0. Get a domain name
 1. Get the local IP address of the machine where the HTTP server will run. On macOS, this is in Settings -> Networks -> Details of the active network -> IP address.
-2. Set an `A` record at the desired host on this IP address in your DNS provider's settings. For instance, if you own the domain `example.com` and want your local server running on machine `192.168.0.213` to be reachable at `local.example.com`, set these two records:
+2. Set two `A` records at the desired host on this IP address in your DNS provider's settings. For instance, if you own the domain `example.com` and want your local server running on machine `192.168.0.213` to be reachable at `local.example.com`, set these two records:
     ```
     A local 192.168.0.213
     A *.local 192.168.0.213
