@@ -1,0 +1,15 @@
+http:
+  routers:
+    to-dev-server:
+      service: dev-server
+      entryPoints:
+        - websecure
+      rule: Host(`local.example.com`) # domain at which the local dev server should be reachable
+      tls:
+        certResolver: myresolver
+
+  services:
+    dev-server:
+      loadBalancer:
+        servers:
+        - url: http://host.docker.internal:5000 # port of the local dev server

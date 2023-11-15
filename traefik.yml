@@ -1,0 +1,31 @@
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+
+  websecure:
+    address: :443
+
+log:
+ level: INFO
+
+providers:
+  docker:
+    exposedByDefault: false
+  file:
+    filename: /etc/traefik/traefik-dynamic.yml
+
+certificatesResolvers:
+  myresolver:
+    acme:
+      dnsChallenge:
+        provider: cloudflare
+        delayBeforeCheck: "10"
+        resolvers:
+          - "1.1.1.1:53"
+      email: email@example.com
+      storage: /letsencrypt/acme.json
