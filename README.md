@@ -8,7 +8,7 @@ This will enable your local HTTP server to be reachable at a global domain name 
 The idea is borrowed from this [blogpost](https://www.codinginfinity.me/posts/reverse-proxy-yourself-to-localhost-with-ssltls/), but traefik is used as reverse proxy instead of nginx-proxy because traefik handles SSL request and renewal automatically.
 
 ## How does it work?
-This is inherently just how traefik (or any other reverse proxy) works. The special bit is that instead of your domain pointing to a public IP, it points to a local IP.
+This is inherently just how traefik (or any other reverse proxy) works. The special bit is that your domain pointing to a local IP instead of a public one.
 ![alt text](localssl.png "How it works")
 
 ## Instruction
@@ -20,9 +20,8 @@ This is inherently just how traefik (or any other reverse proxy) works. The spec
     A local 192.168.0.213
     A *.local 192.168.0.213
     ```
-    The second one is optional but practical when you have multiple services running and don't want to set a record for each of them.
 
-3. In `docker-compose.yml`, replace all instances of `your-domain.com` with the one that you set the DNS records for, e.g. `local.example.com`. Also replace `CF_API_KEY` and `CF_API_EMAIL` value with your credentials for Cloudflare. If you have another provider, follow this [instruction](https://doc.traefik.io/traefik/https/acme/#providers).
+3. In `docker-compose.yml`, replace all instances of `your-domain.com` with the one that you set the DNS records for, e.g. `local.example.com`. Also replace `CF_API_KEY` and `CF_API_EMAIL` value with your credentials for Cloudflare. If you use another provider, follow this [instruction](https://doc.traefik.io/traefik/https/acme/#providers).
 
 4. Go to `traefik.yml`, update `certificatesResolvers.myresolver.acme.dnsChallenge.provider` if needed
 5. Go to `traefik-dynamic.yml`, update the host at `http.routers.to-dev-server.rule` and update the port at `services.dev-server.loadBalancer.servers[0].url` to the port of your local server
