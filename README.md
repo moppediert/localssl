@@ -22,7 +22,7 @@ This is inherently just how traefik (or any other reverse proxy) works. The spec
     A *.local 192.168.0.213
     ```
 
-3. In `docker-compose.yml`, replace all instances of `your-domain.com` with the one that you set the DNS records for, e.g. `local.example.com`. Also replace `CF_API_KEY` and `CF_API_EMAIL` value with your credentials for Cloudflare. If you use another provider, follow this [instruction](https://doc.traefik.io/traefik/https/acme/#providers).
+3. In `docker-compose.yml`, replace `CF_API_KEY` and `CF_API_EMAIL` value with your credentials for Cloudflare. If you use another provider, follow this [instruction](https://doc.traefik.io/traefik/https/acme/#providers).
 
 4. Go to `traefik.yml`, update `certificatesResolvers.myresolver.acme.dnsChallenge.provider` if needed
 5. Go to `traefik-dynamic.yml`, update the host at `http.routers.to-dev-server.rule` and update the port at `services.dev-server.loadBalancer.servers[0].url` to the port of your local server
