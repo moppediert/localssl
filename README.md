@@ -8,6 +8,7 @@ This will enable your local HTTP server to be reachable at a global domain name 
 The idea is mainly taken from this [blogpost](https://www.codinginfinity.me/posts/reverse-proxy-yourself-to-localhost-with-ssltls/), but traefik is used as reverse proxy instead of nginx-proxy because traefik handles SSL request and renewal automatically.
 
 ## How does it work?
+This is inherently just how traefik (or any other reverse proxy) works. The special bit is that instead of your domain pointing to a public IP, it points to a local IP.
 ![alt text](localssl.png "How it works")
 
 ## Instruction
