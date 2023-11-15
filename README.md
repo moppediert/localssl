@@ -10,6 +10,7 @@ The idea is borrowed from this [blogpost](https://www.codinginfinity.me/posts/re
 ## How does it work?
 This is inherently just how traefik (or any other reverse proxy) works. The special bit is that your domain pointing to a local IP instead of a public one.
 ![alt text](localssl.png "How it works")
+[Excalidraw link](https://excalidraw.com/#room=0004f701271058fc002c,fIer3-ufnBMPaIoU_b6fwQ)
 
 ## Instruction
 
