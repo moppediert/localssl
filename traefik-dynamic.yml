@@ -4,7 +4,7 @@ http:
       service: dev-server
       entryPoints:
         - websecure
-      rule: Host(`local.example.com`) # domain at which the local dev server should be reachable
+      rule: Host(`dev.local.example.com`) # domain at which the local dev server should be reachable
       tls:
         certResolver: myresolver
 

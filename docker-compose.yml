@@ -3,12 +3,12 @@ services:
   traefik:
     image: "traefik:v2.10"
     container_name: "traefik"
-    environment:
-      - DOMAIN=example.com
     command:
       - "--configFile=/etc/traefik/traefik.yml"
-    env_file:
-      - .env.compose
+    environment:
+      - DOMAIN=your-domain.com
+      - CF_API_KEY=this-is-the-cloudflare-key
+      - CF_API_EMAIL=this-is-the-cloudflare-email
     ports:
       - "80:80"
       - "443:443"
@@ -28,7 +28,7 @@ services:
     image: containous/whoami
     container_name: whoami
     environment:
-      - DOMAIN=example.com
+      - DOMAIN=your-domain.com
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`whoami.${DOMAIN}`)"
